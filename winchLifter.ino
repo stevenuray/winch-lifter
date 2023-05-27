@@ -1,10 +1,11 @@
-const int enablePin = 3;
+const int enablePin = 9;
 const int inputAPin = 4;
 const int inputBPin = 5;
 const int directionButtonOutputPin = 8;
+const int directionButtonOutputPin2 = 10;
 const int clockwiseDirectionButtonInputPin = A0;
 const int counterClockwiseDirectionButtonInputPin = A2;
-const int maxAnalogInputForNoPress = 1000;
+const int maxAnalogInputForNoPress = 970;
 
 enum RotationDirection {
   CLOCKWISE,
@@ -80,6 +81,8 @@ void rotateCounterClockwise() {
 void setupDirectionSwitch() {
   pinMode(directionButtonOutputPin, OUTPUT);
   digitalWrite(directionButtonOutputPin, HIGH);
+  pinMode(directionButtonOutputPin2, OUTPUT);
+  digitalWrite(directionButtonOutputPin2, HIGH);
 }
 
 void setRotationFromInputs(){
@@ -105,4 +108,3 @@ void stopRotation(){
   Serial.println("No rotation");
   digitalWrite(enablePin, LOW);
 }
-
